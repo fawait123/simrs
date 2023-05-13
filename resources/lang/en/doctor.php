@@ -12,5 +12,6 @@ return [
     "foto"=>"Photos",
     "alamat"=>"Address",
     "simpan"=>"Submit",
-    "reset"=>"Reset"
+    "reset"=>"Reset",
+    "button_add"=>"Add Doctor"
 ];
