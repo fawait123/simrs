@@ -12,5 +12,6 @@ return [
     "foto"=>"Foto",
     "alamat"=>"Alamat",
     "simpan"=>"Simpan",
-    "reset"=>"Batal"
+    "reset"=>"Batal",
+    "button_add"=>"Tambah Dokter"
 ];

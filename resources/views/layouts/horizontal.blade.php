@@ -317,7 +317,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement"
                                 role="button">
-                                <i class="uil-flask me-2"></i>@lang('translation.master_data') <div class="arrow-down"></div>
+                                <i class="uil-flask me-2"></i>@lang('menu.master_data') <div class="arrow-down"></div>
                             </a>
 
                             <div class="dropdown-menu mega-dropdown-menu px-2 dropdown-mega-menu-xl"
@@ -325,12 +325,14 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div>
-                                            <a href="ui-alerts" class="dropdown-item">@lang('translation.pengguna')</a>
+                                            <a href="ui-alerts" class="dropdown-item">@lang('menu.pengguna')</a>
                                             <a href="{{ url('pages/master/doctor') }}"
                                                 class="dropdown-item">@lang('translation.dokter')</a>
-                                            <a href="ui-cards" class="dropdown-item">@lang('translation.pasien')</a>
-                                            <a href="ui-carousel" class="dropdown-item">@lang('translation.obat')</a>
-                                            <a href="ui-dropdowns" class="dropdown-item">@lang('translation.kamar')</a>
+                                            <a href="ui-cards" class="dropdown-item">@lang('menu.pasien')</a>
+                                            <a href="ui-carousel" class="dropdown-item">@lang('menu.obat')</a>
+                                            <a href="ui-dropdowns" class="dropdown-item">@lang('menu.kamar')</a>
+                                            <a href="{{ url('pages/master/specialist') }}"
+                                                class="dropdown-item">@lang('menu.spesialis')</a>
                                         </div>
                                     </div>
                                 </div>
@@ -527,7 +529,8 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="topnav-layout-verti">
                                         <a href="layouts-dark-sidebar" class="dropdown-item">@lang('translation.Dark_Sidebar')</a>
-                                        <a href="layouts-compact-sidebar" class="dropdown-item">@lang('translation.Compact_Sidebar')</a>
+                                        <a href="layouts-compact-sidebar"
+                                            class="dropdown-item">@lang('translation.Compact_Sidebar')</a>
                                         <a href="layouts-icon-sidebar" class="dropdown-item">@lang('translation.Icon_Sidebar')</a>
                                         <a href="layouts-boxed" class="dropdown-item">@lang('translation.Boxed_Width')</a>
                                         <a href="layouts-preloader" class="dropdown-item">@lang('translation.Preloader')</a>
