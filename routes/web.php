@@ -33,11 +33,15 @@ Route::group(['prefix'=>'pages'],function(){
         Route::group(['prefix'=>'store'],function(){
             Route::post('doctor',[App\Http\Controllers\DoctorController::class,'store'])->name('doctor.store');
             Route::post('specialist',[App\Http\Controllers\SpecialistController::class,'store'])->name('specialist.store');
+            Route::post('room',[App\Http\Controllers\RoomController::class,'store'])->name('room.store');
+            Route::post('medicine',[App\Http\Controllers\MedicineController::class,'store'])->name('medicine.store');
         });
 
         // update
         Route::group(['prefix'=>'update'],function(){
             Route::post('specialist/{id}',[App\Http\Controllers\SpecialistController::class,'update'])->name('specialist.update');
+            Route::post('room/{id}',[App\Http\Controllers\RoomController::class,'update'])->name('room.update');
+            Route::post('medicine/{id}',[App\Http\Controllers\MedicineController::class,'update'])->name('medicine.update');
         });
 
         // delete
