@@ -329,8 +329,10 @@
                                             <a href="{{ url('pages/master/doctor') }}"
                                                 class="dropdown-item">@lang('translation.dokter')</a>
                                             <a href="ui-cards" class="dropdown-item">@lang('menu.pasien')</a>
-                                            <a href="ui-carousel" class="dropdown-item">@lang('menu.obat')</a>
-                                            <a href="ui-dropdowns" class="dropdown-item">@lang('menu.kamar')</a>
+                                            <a href="{{ url('pages/master/medicine') }}"
+                                                class="dropdown-item">@lang('menu.obat')</a>
+                                            <a href="{{ url('pages/master/room') }}"
+                                                class="dropdown-item">@lang('menu.kamar')</a>
                                             <a href="{{ url('pages/master/specialist') }}"
                                                 class="dropdown-item">@lang('menu.spesialis')</a>
                                         </div>
