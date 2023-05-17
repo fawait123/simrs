@@ -327,8 +327,9 @@
                                         <div>
                                             <a href="ui-alerts" class="dropdown-item">@lang('menu.pengguna')</a>
                                             <a href="{{ url('pages/master/doctor') }}"
-                                                class="dropdown-item">@lang('translation.dokter')</a>
-                                            <a href="ui-cards" class="dropdown-item">@lang('menu.pasien')</a>
+                                                class="dropdown-item">@lang('menu.dokter')</a>
+                                            <a href="{{ url('pages/master/patient') }}"
+                                                class="dropdown-item">@lang('menu.pasien')</a>
                                             <a href="{{ url('pages/master/medicine') }}"
                                                 class="dropdown-item">@lang('menu.obat')</a>
                                             <a href="{{ url('pages/master/room') }}"

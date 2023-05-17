@@ -35,6 +35,7 @@ Route::group(['prefix'=>'pages'],function(){
             Route::post('specialist',[App\Http\Controllers\SpecialistController::class,'store'])->name('specialist.store');
             Route::post('room',[App\Http\Controllers\RoomController::class,'store'])->name('room.store');
             Route::post('medicine',[App\Http\Controllers\MedicineController::class,'store'])->name('medicine.store');
+            Route::post('patient',[App\Http\Controllers\PatientController::class,'store'])->name('patient.store');
         });
 
         // update
@@ -42,6 +43,7 @@ Route::group(['prefix'=>'pages'],function(){
             Route::post('specialist/{id}',[App\Http\Controllers\SpecialistController::class,'update'])->name('specialist.update');
             Route::post('room/{id}',[App\Http\Controllers\RoomController::class,'update'])->name('room.update');
             Route::post('medicine/{id}',[App\Http\Controllers\MedicineController::class,'update'])->name('medicine.update');
+            Route::post('patient/{id}',[App\Http\Controllers\PatientController::class,'update'])->name('patient.update');
         });
 
         // delete

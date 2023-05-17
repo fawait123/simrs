@@ -7,6 +7,7 @@
 <script src="{{ URL::asset('/assets/libs/waypoints/waypoints.min.js') }}"></script>
 <script src="{{ URL::asset('/assets/libs/jquery-counterup/jquery-counterup.min.js') }}"></script>
 <script src="{{ URL::asset('/assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+<script src="{{ URL::asset('/assets/libs/dropify/dist/js/dropify.min.js') }}"></script>
 <script>
     $(document).ready(function() {
         $(".button-delete").on('click', function() {
