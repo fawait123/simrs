@@ -2,5 +2,6 @@
 
 return [
     'button_add'=>"Add Specialist",
-    "name"=>"Name"
+    "name"=>"Name",
+    "action"=>"Action"
 ];

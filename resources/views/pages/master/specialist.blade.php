@@ -30,8 +30,8 @@
                         style="border-collapse: collapse; border-spacing: 0 12px; width: 100%;">
                         <thead>
                             <tr class="bg-transparent">
-                                <th>Name</th>
-                                <th style="width: 120px;">Action</th>
+                                <th>@lang('specialist.name')</th>
+                                <th style="width: 120px;">@lang('specialist.action')</th>
                             </tr>
                         </thead>
                         <tbody>

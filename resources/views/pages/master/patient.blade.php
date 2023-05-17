@@ -30,15 +30,48 @@
                         style="border-collapse: collapse; border-spacing: 0 12px; width: 100%;">
                         <thead>
                             <tr class="bg-transparent">
-                                <th>Name</th>
-                                <th style="width: 120px;">Action</th>
+                                <th>@lang('patient.nik')</th>
+                                <th>@lang('patient.name')</th>
+                                <th>@lang('patient.gender')</th>
+                                <th>@lang('patient.placebirth')</th>
+                                <th>@lang('patient.birthdate')</th>
+                                <th>@lang('patient.age')</th>
+                                <th>@lang('patient.academic')</th>
+                                <th>@lang('patient.religion')</th>
+                                <th>@lang('patient.work')</th>
+                                <th>@lang('patient.address')</th>
+                                <th>@lang('patient.phone')</th>
+                                <th>@lang('patient.email')</th>
+                                <th>@lang('patient.ktp')</th>
+                                <th style="width: 120px;">@lang('patient.action')</th>
                             </tr>
                         </thead>
                         <tbody>
                             @if (count($data) > 0)
                                 @foreach ($data as $item)
                                     <tr>
-                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->nik }}</td>
+                                        <td>
+                                            <img src="{{ URL::asset($item->photos) }}" alt=""
+                                                class="avatar-xs rounded-circle me-2">
+                                            <span>{{ $item->name }}</span>
+                                        </td>
+                                        <td>{{ $item->gender == 'L' ? 'Laki Laki' : 'Perempuan' }}</td>
+                                        <td>{{ $item->placebirth }}</td>
+                                        <td>{{ date('d M Y', strtotime($item->birthdate)) }}</td>
+                                        <td>{{ $item->age }}</td>
+                                        <td>{{ $item->academic }}</td>
+                                        <td>{{ $item->religion }}</td>
+                                        <td>{{ $item->work }}</td>
+                                        <td>{{ $item->province . ', ' . $item->district . ', ' . $item->subdistrict . ', ' . $item->village . ', ' . $item->rtrw }}
+                                        </td>
+                                        <td>{{ $item->phone }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>
+                                            <a href="{{ URL::asset($item->ktp) }}" target="blank"><img
+                                                    src="{{ URL::asset($item->ktp) }}" alt=""
+                                                    class="avatar-xs rounded-circle me-2"></a>
+                                        </td>
                                         <td>
                                             <a href="{{ url('pages/master/form/' . $title . '/' . $item->id) }}"
                                                 class="px-3 text-primary"><i class="uil uil-pen font-size-18"></i></a>

@@ -30,10 +30,10 @@
                         style="border-collapse: collapse; border-spacing: 0 12px; width: 100%;">
                         <thead>
                             <tr class="bg-transparent">
-                                <th>Name</th>
-                                <th>Dosage</th>
-                                <th>Stock</th>
-                                <th>Price</th>
+                                <th>@lang('medicine.name')</th>
+                                <th>@lang('medicine.dosis')</th>
+                                <th>@lang('medicine.stok')</th>
+                                <th>@lang('medicine.price')</th>
                                 <th style="width: 120px;">Action</th>
                             </tr>
                         </thead>

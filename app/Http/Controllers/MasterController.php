@@ -86,4 +86,9 @@ class MasterController extends Controller
         $find->delete();
         return true;
     }
+
+    public function removeImages(Request $request)
+    {
+        return $request->all();
+    }
 }
