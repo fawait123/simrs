@@ -48,5 +48,8 @@ Route::group(['prefix'=>'pages'],function(){
 
         // delete
         Route::get('/',[App\Http\Controllers\MasterController::class,'destroy'])->name('master.delete');
+
+        // delete image
+        Route::delete('images',[App\Http\Controllers\MasterController::class,'removeImages'])->name('master.images.delete');
     });
 });

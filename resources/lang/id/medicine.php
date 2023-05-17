@@ -7,5 +7,6 @@ return [
     "form_subtitle"=>"Silahkan isi form dibawah ini untuk menambahkan obat",
     "price"=>"Harga",
     "stok"=>"Stok",
-    "dosis"=>"Dosis"
+    "dosis"=>"Dosis",
+    "action"=>"Aksi"
 ];

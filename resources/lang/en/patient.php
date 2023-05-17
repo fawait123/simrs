@@ -23,4 +23,6 @@ return [
     "email"=>"Email",
     "photos"=>"Photos",
     "ktp"=>"KTP",
+    "address"=>"Address",
+    "action"=>"Action"
 ];
