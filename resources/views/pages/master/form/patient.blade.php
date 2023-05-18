@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">@lang('patient.gender')</label>
-                                        <select name="gender" id="gender" class="form-control">
+                                        <select name="gender" id="gender" class="form-control" required>
                                             <option value="">select</option>
                                             <option value="L"
                                                 {{ isset($id) ? (($data->gender == 'L' ? 'selected' : old('gender') == 'L') ? 'selected' : '') : '' }}>
@@ -76,7 +76,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">@lang('patient.academic')</label>
-                                        <select name="academic" id="academic" class="form-control">
+                                        <select name="academic" id="academic" class="form-control" required>
                                             <option value="">select</option>
                                             <option value="SD"
                                                 {{ isset($id) ? (($data->academic == 'SD' ? 'selected' : old('academic') == 'SD') ? 'selected' : '') : '' }}>
@@ -100,7 +100,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">@lang('patient.religion')</label>
-                                        <select name="religion" id="religion" class="form-control">
+                                        <select name="religion" id="religion" class="form-control" required>
                                             <option value="">select</option>
                                             <option value="Islam"
                                                 {{ isset($id) ? (($data->religion == 'Islam' ? 'selected' : old('religion') == 'Islam') ? 'selected' : '') : '' }}>
