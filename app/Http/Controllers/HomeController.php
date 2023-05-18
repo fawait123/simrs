@@ -65,4 +65,14 @@ class HomeController extends Controller
     {
         return view('form-repeater');
     }
+
+    public function setting(Request $request)
+    {
+        $path = $request->path();
+        $path = explode('/',$path);
+        $title = end($path);
+        return view('pages.setting',[
+            'title'=>$title
+        ]);
+    }
 }

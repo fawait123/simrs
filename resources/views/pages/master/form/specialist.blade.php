@@ -27,6 +27,9 @@
                         action="{{ isset($id) ? route('specialist.update', $id) : route('specialist.store') }}"
                         method="post">
                         @csrf
+                        @if (isset($id))
+                            @method('put')
+                        @endif
                         <div class="row">
                             <div class="col-md-12 col-xl-12">
                                 <div class="mb-3">
