@@ -325,7 +325,8 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div>
-                                            <a href="ui-alerts" class="dropdown-item">@lang('menu.pengguna')</a>
+                                            <a href="{{ url('pages/master/user') }}"
+                                                class="dropdown-item">@lang('menu.pengguna')</a>
                                             <a href="{{ url('pages/master/doctor') }}"
                                                 class="dropdown-item">@lang('menu.dokter')</a>
                                             <a href="{{ url('pages/master/patient') }}"
