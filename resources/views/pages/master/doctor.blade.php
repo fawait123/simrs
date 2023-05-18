@@ -30,18 +30,18 @@
                         style="border-collapse: collapse; border-spacing: 0 12px; width: 100%;">
                         <thead>
                             <tr class="bg-transparent">
-                                <th>@lang('doctor.nik')/@lang('doctor.nip')</th>
                                 <th>@lang('doctor.name')</th>
                                 <th>@lang('doctor.specialist')</th>
                                 <th>@lang('doctor.gender')</th>
-                                <th>@lang('doctor.placebirth')</th>
-                                <th>@lang('doctor.birthdate')</th>
+                                <th>@lang('doctor.religion')</th>
                                 <th>@lang('doctor.age')</th>
                                 <th>@lang('doctor.academic')</th>
-                                <th>@lang('doctor.religion')</th>
-                                <th>@lang('doctor.address')</th>
                                 <th>@lang('doctor.phone')</th>
                                 <th>@lang('doctor.email')</th>
+                                <th>@lang('doctor.nik')/@lang('doctor.nip')</th>
+                                <th>@lang('doctor.placebirth')</th>
+                                <th>@lang('doctor.birthdate')</th>
+                                <th>@lang('doctor.address')</th>
                                 <th style="width: 120px;">@lang('doctor.action')</th>
                             </tr>
                         </thead>
@@ -50,7 +50,6 @@
                             @if (count($data) > 0)
                                 @foreach ($data as $item)
                                     <tr>
-                                        <td>{{ $item->nik }}/{{ $item->nip }}</td>
                                         <td>
                                             <img src="{{ URL::asset($item->photos) }}" alt=""
                                                 class="avatar-xs rounded-circle me-2">
@@ -63,10 +62,7 @@
                                             {{ $item->gender == 'L' ? 'Laki Laki' : 'Perempuan' }}
                                         </td>
                                         <td>
-                                            {{ $item->placebirth }}
-                                        </td>
-                                        <td>
-                                            {{ $item->birthdate }}
+                                            {{ $item->religion }}
                                         </td>
                                         <td>
                                             {{ round($item->age / 365) }}
@@ -75,16 +71,20 @@
                                             {{ $item->academic }}
                                         </td>
                                         <td>
-                                            {{ $item->religion }}
-                                        </td>
-                                        <td>
-                                            {{ $item->province . ', ' . $item->district . ', ' . $item->subdistrict . ', ' . $item->village . ', ' . $item->rtrw }}
-                                        </td>
-                                        <td>
                                             {{ $item->phone }}
                                         </td>
                                         <td>
                                             {{ $item->email }}
+                                        </td>
+                                        <td>{{ $item->nik }}/{{ $item->nip }}</td>
+                                        <td>
+                                            {{ $item->placebirth }}
+                                        </td>
+                                        <td>
+                                            {{ date('d M Y', strtotime($item->birthdate)) }}
+                                        </td>
+                                        <td>
+                                            {{ $item->province . ', ' . $item->district . ', ' . $item->subdistrict . ', ' . $item->village . ', ' . $item->rtrw }}
                                         </td>
                                         <td>
                                             <a href="{{ url('pages/master/form/' . $title . '/' . $item->id) }}"
