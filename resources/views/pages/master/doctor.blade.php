@@ -30,30 +30,61 @@
                         style="border-collapse: collapse; border-spacing: 0 12px; width: 100%;">
                         <thead>
                             <tr class="bg-transparent">
-                                <th>NIK</th>
-                                <th>Name</th>
-                                <th>Gender</th>
-                                <th>Spesialist</th>
-                                <th style="width: 120px;">Action</th>
+                                <th>@lang('doctor.nik')/@lang('doctor.nip')</th>
+                                <th>@lang('doctor.name')</th>
+                                <th>@lang('doctor.specialist')</th>
+                                <th>@lang('doctor.gender')</th>
+                                <th>@lang('doctor.placebirth')</th>
+                                <th>@lang('doctor.birthdate')</th>
+                                <th>@lang('doctor.age')</th>
+                                <th>@lang('doctor.academic')</th>
+                                <th>@lang('doctor.religion')</th>
+                                <th>@lang('doctor.address')</th>
+                                <th>@lang('doctor.phone')</th>
+                                <th>@lang('doctor.email')</th>
+                                <th style="width: 120px;">@lang('doctor.action')</th>
                             </tr>
+                        </thead>
                         </thead>
                         <tbody>
                             @if (count($data) > 0)
                                 @foreach ($data as $item)
                                     <tr>
+                                        <td>{{ $item->nik }}/{{ $item->nip }}</td>
                                         <td>
-                                            <img src="http://127.0.0.1:8000/assets/images/users/avatar-2.jpg" alt=""
+                                            <img src="{{ URL::asset($item->photos) }}" alt=""
                                                 class="avatar-xs rounded-circle me-2">
-                                            <span>{{ $item->nik }}</span>
+                                            <span>{{ $item->name }}, {{ $item->degree }}</span>
                                         </td>
-                                        <td>{{ $item->name }}</td>
-
+                                        <td>
+                                            {{ $item->specialist->name ?? '' }}
+                                        </td>
                                         <td>
                                             {{ $item->gender == 'L' ? 'Laki Laki' : 'Perempuan' }}
                                         </td>
                                         <td>
-                                            <div class="badge bg-pill bg-soft-success font-size-12">{{ $item->specialist }}
-                                            </div>
+                                            {{ $item->placebirth }}
+                                        </td>
+                                        <td>
+                                            {{ $item->birthdate }}
+                                        </td>
+                                        <td>
+                                            {{ round($item->age / 365) }}
+                                        </td>
+                                        <td>
+                                            {{ $item->academic }}
+                                        </td>
+                                        <td>
+                                            {{ $item->religion }}
+                                        </td>
+                                        <td>
+                                            {{ $item->province . ', ' . $item->district . ', ' . $item->subdistrict . ', ' . $item->village . ', ' . $item->rtrw }}
+                                        </td>
+                                        <td>
+                                            {{ $item->phone }}
+                                        </td>
+                                        <td>
+                                            {{ $item->email }}
                                         </td>
                                         <td>
                                             <a href="{{ url('pages/master/form/' . $title . '/' . $item->id) }}"

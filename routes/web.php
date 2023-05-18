@@ -44,6 +44,7 @@ Route::group(['prefix'=>'pages'],function(){
             Route::post('room/{id}',[App\Http\Controllers\RoomController::class,'update'])->name('room.update');
             Route::post('medicine/{id}',[App\Http\Controllers\MedicineController::class,'update'])->name('medicine.update');
             Route::post('patient/{id}',[App\Http\Controllers\PatientController::class,'update'])->name('patient.update');
+            Route::post('doctor/{id}',[App\Http\Controllers\DoctorController::class,'update'])->name('doctor.update');
         });
 
         // delete
