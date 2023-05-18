@@ -4,29 +4,53 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'root']);
+// route auth
+Route::get('login',[App\Http\Controllers\AuthController::class,'login'])->name('login');
+Route::post('login',[App\Http\Controllers\AuthController::class,'loginAction'])->name('login');
+Route::get('register',[App\Http\Controllers\AuthController::class,'register'])->name('register');
+Route::post('register',[App\Http\Controllers\AuthController::class,'registerAction'])->name('register');
+Route::post('logout',[App\Http\Controllers\AuthController::class,'logout'])->name('logout')->middleware('auth');
 
-Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index']);
-//Language Translation
 
-Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
-Route::get('layout/{type}', [App\Http\Controllers\HomeController::class, 'layout']);
+Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('home')->middleware('auth');
+Route::get('setting',[App\Http\Controllers\HomeController::class, 'setting'])->name('setting')->middleware('auth');
 
-Route::post('/formsubmit', [App\Http\Controllers\HomeController::class, 'FormSubmit'])->name('FormSubmit');
+//route Language Translation
+Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang'])->middleware('auth');
+Route::get('layout/{type}', [App\Http\Controllers\HomeController::class, 'layout'])->middleware('auth');
+Route::post('/formsubmit', [App\Http\Controllers\HomeController::class, 'FormSubmit'])->name('FormSubmit')->middleware('auth');
 
 // route tambahan
-Route::group(['prefix'=>'pages'],function(){
+Route::group(['prefix'=>'pages','middleware'=>['auth','role:admin']],function(){
     // master data
     Route::group(['prefix'=>'master'],function(){
         // get
-        Route::get('{any}',[App\Http\Controllers\MasterController::class,'index']);
+        Route::get('user',[App\Http\Controllers\MasterController::class,'index']);
+        Route::get('patient',[App\Http\Controllers\MasterController::class,'index']);
+        Route::get('medicine',[App\Http\Controllers\MasterController::class,'index']);
+        Route::get('doctor',[App\Http\Controllers\MasterController::class,'index']);
+        Route::get('specialist',[App\Http\Controllers\MasterController::class,'index']);
+        Route::get('room',[App\Http\Controllers\MasterController::class,'index']);
 
         // form
         Route::group(['prefix'=>'form'],function(){
-            Route::get('{any}',[App\Http\Controllers\MasterController::class,'create']);
-            Route::get('{any}/{id}',[App\Http\Controllers\MasterController::class,'edit']);
+            // create
+            Route::get('user',[App\Http\Controllers\MasterController::class,'create']);
+            Route::get('patient',[App\Http\Controllers\MasterController::class,'create']);
+            Route::get('medicine',[App\Http\Controllers\MasterController::class,'create']);
+            Route::get('doctor',[App\Http\Controllers\MasterController::class,'create']);
+            Route::get('specialist',[App\Http\Controllers\MasterController::class,'create']);
+            Route::get('room',[App\Http\Controllers\MasterController::class,'create']);
+
+            // edit
+            Route::get('user/{id}',[App\Http\Controllers\MasterController::class,'edit']);
+            Route::get('patient/{id}',[App\Http\Controllers\MasterController::class,'edit']);
+            Route::get('medicine/{id}',[App\Http\Controllers\MasterController::class,'edit']);
+            Route::get('doctor/{id}',[App\Http\Controllers\MasterController::class,'edit']);
+            Route::get('specialist/{id}',[App\Http\Controllers\MasterController::class,'edit']);
+            Route::get('room/{id}',[App\Http\Controllers\MasterController::class,'edit']);
         });
 
         // store
@@ -41,12 +65,12 @@ Route::group(['prefix'=>'pages'],function(){
 
         // update
         Route::group(['prefix'=>'update'],function(){
-            Route::post('specialist/{id}',[App\Http\Controllers\SpecialistController::class,'update'])->name('specialist.update');
-            Route::post('room/{id}',[App\Http\Controllers\RoomController::class,'update'])->name('room.update');
-            Route::post('medicine/{id}',[App\Http\Controllers\MedicineController::class,'update'])->name('medicine.update');
-            Route::post('patient/{id}',[App\Http\Controllers\PatientController::class,'update'])->name('patient.update');
-            Route::post('doctor/{id}',[App\Http\Controllers\DoctorController::class,'update'])->name('doctor.update');
-            Route::post('user/{id}',[App\Http\Controllers\UserController::class,'update'])->name('user.update');
+            Route::put('specialist/{id}',[App\Http\Controllers\SpecialistController::class,'update'])->name('specialist.update');
+            Route::put('room/{id}',[App\Http\Controllers\RoomController::class,'update'])->name('room.update');
+            Route::put('medicine/{id}',[App\Http\Controllers\MedicineController::class,'update'])->name('medicine.update');
+            Route::put('patient/{id}',[App\Http\Controllers\PatientController::class,'update'])->name('patient.update');
+            Route::put('doctor/{id}',[App\Http\Controllers\DoctorController::class,'update'])->name('doctor.update');
+            Route::put('user/{id}',[App\Http\Controllers\UserController::class,'update'])->name('user.update');
         });
 
         // delete
@@ -56,3 +80,8 @@ Route::group(['prefix'=>'pages'],function(){
         Route::put('user/status',[App\Http\Controllers\UserController::class,'status'])->name('user.status');
     });
 });
+
+
+
+// route any
+Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index']);

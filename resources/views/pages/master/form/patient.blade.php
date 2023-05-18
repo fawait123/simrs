@@ -36,6 +36,9 @@
                             action="{{ isset($id) ? route('patient.update', $id) : route('patient.store') }}" method="post"
                             enctype="multipart/form-data">
                             @csrf
+                            @if (isset($id))
+                                @method('put')
+                            @endif
                             <div class="row">
                                 <div class="col-md-12 col-xl-12">
                                     <div class="mb-3">

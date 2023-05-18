@@ -26,6 +26,9 @@
                     <form class="custom-validation"
                         action="{{ isset($id) ? route('room.update', $id) : route('room.store') }}" method="post">
                         @csrf
+                        @if (isset($id))
+                            @method('put')
+                        @endif
                         <div class="row">
                             <div class="col-md-12 col-xl-12">
                                 <div class="mb-3">
