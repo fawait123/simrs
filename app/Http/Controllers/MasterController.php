@@ -28,12 +28,13 @@ class MasterController extends Controller
         if(view()->exists($request->path())){
             $path = explode('/',$request->path());
             $path = end($path);
+            $specialist = null;
             if($path == 'doctor'){
-                $data = \App\Models\Specialist::latest()->get();
+                $specialist = \App\Models\Specialist::latest()->get();
             }
             return view($request->path(),[
                 'title'=>'Create '.$path,
-                'specialist'=>$data
+                'specialist'=>$specialist
             ]);
         }
 
@@ -60,6 +61,7 @@ class MasterController extends Controller
             $model = '\\App\\Models\\'.$nPath;
             $model  = new $model;
             $data = $model->find($id);
+            $specialist = null;
             if($nPath == 'doctor'){
                 $specialist = \App\Models\Specialist::latest()->get();
             }

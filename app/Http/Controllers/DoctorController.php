@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use File;
+use Illuminate\Support\Facades\Hash;
 
 class DoctorController extends Controller
 {
@@ -49,7 +50,7 @@ class DoctorController extends Controller
             'subdistrict'=>$request->subdistricts,
             'village'=>$request->villages,
         ]);
-        \App\Models\Doctor::create([
+        $doctor = \App\Models\Doctor::create([
             "nik" => $request->nik,
             "nip" => $request->nip,
             "name" => $request->name,
@@ -71,6 +72,8 @@ class DoctorController extends Controller
             "photos" => $photos,
             "age"=>$age
         ]);
+
+        $this->createorUpdateUser($doctor);
 
         return redirect('pages/master/doctor')->with(['message'=>'Data Created successfully']);
     }
@@ -97,6 +100,8 @@ class DoctorController extends Controller
     public function update(Request $request, string $id)
     {
         $doctor = \App\Models\Doctor::find($id);
+
+        $this->createorUpdateUser($doctor);
 
         if(!$doctor){
             return redirect('pages/master/doctor')->with(['message'=>'Data doesnt match to our record']);
@@ -162,5 +167,30 @@ class DoctorController extends Controller
         if(File::exists(public_path($path))){
             File::delete(public_path($path));
         }
+    }
+
+    public function createorUpdateUser($data)
+    {
+        $user = \App\Models\User::where('prefixID',$data->id)->first();
+
+        if($user){
+            // update
+            \App\Models\User::where('prefixID',$data->id)->update([
+                'name'=>$data->name.', '. $data->degree,
+                'email'=>$data->email,
+            ]);
+        }else{
+            // create
+            \App\Models\User::create([
+                'name'=>$data->name.', '. $data->degree,
+                'email'=>$data->email,
+                'password'=>Hash::make('12345678'),
+                'role'=>'doctor',
+                'prefixID'=>$data->id,
+                'prefix'=>'\App\Models\User',
+                'is_verified'=>true
+            ]);
+        }
+
     }
 }

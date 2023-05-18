@@ -36,6 +36,7 @@ Route::group(['prefix'=>'pages'],function(){
             Route::post('room',[App\Http\Controllers\RoomController::class,'store'])->name('room.store');
             Route::post('medicine',[App\Http\Controllers\MedicineController::class,'store'])->name('medicine.store');
             Route::post('patient',[App\Http\Controllers\PatientController::class,'store'])->name('patient.store');
+            Route::post('user',[App\Http\Controllers\UserController::class,'store'])->name('user.store');
         });
 
         // update
@@ -45,12 +46,13 @@ Route::group(['prefix'=>'pages'],function(){
             Route::post('medicine/{id}',[App\Http\Controllers\MedicineController::class,'update'])->name('medicine.update');
             Route::post('patient/{id}',[App\Http\Controllers\PatientController::class,'update'])->name('patient.update');
             Route::post('doctor/{id}',[App\Http\Controllers\DoctorController::class,'update'])->name('doctor.update');
+            Route::post('user/{id}',[App\Http\Controllers\UserController::class,'update'])->name('user.update');
         });
 
         // delete
         Route::get('/',[App\Http\Controllers\MasterController::class,'destroy'])->name('master.delete');
 
         // delete image
-        Route::delete('images',[App\Http\Controllers\MasterController::class,'removeImages'])->name('master.images.delete');
+        Route::put('user/status',[App\Http\Controllers\UserController::class,'status'])->name('user.status');
     });
 });
