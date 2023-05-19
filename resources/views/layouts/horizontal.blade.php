@@ -301,12 +301,14 @@
                 </div>
             </div>
             {{-- setting --}}
-            <div class="dropdown d-inline-block">
-                <button type="button" class="btn header-item noti-icon waves-effect"
-                    onclick="window.location.href='{{ route('setting') }}'">
-                    <i class="uil-cog"></i>
-                </button>
-            </div>
+            @if (auth()->user()->role == 'user')
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item noti-icon waves-effect"
+                        onclick="window.location.href='{{ route('setting') }}'">
+                        <i class="uil-cog"></i>
+                    </button>
+                </div>
+            @endif
             {{-- end setting --}}
         </div>
     </div>
