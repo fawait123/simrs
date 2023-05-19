@@ -8,4 +8,8 @@ return [
     "kamar"=>"Room",
     "master_data"=>"Master Data",
     "spesialis"=>"Spesialist",
+    "registration"=>"Registration",
+    "tracker"=>"Tracker",
+    "rekam_medis"=>"Medical Record",
+    "apps"=>"Apps"
 ];
