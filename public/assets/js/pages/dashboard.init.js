@@ -10,21 +10,23 @@ Website: https://themesbrand.com/
 Contact: support@themesbrand.com
 File: Dashboard
 */
-
 // get colors array from the string
 function getChartColorsArray(chartId) {
   if (document.getElementById(chartId) !== null) {
     var colors = document.getElementById(chartId).getAttribute("data-colors");
+
     if (colors) {
       colors = JSON.parse(colors);
       return colors.map(function (value) {
         var newValue = value.replace(" ", "");
+
         if (newValue.indexOf(",") === -1) {
           var color = getComputedStyle(document.documentElement).getPropertyValue(newValue);
           if (color) return color;else return newValue;
           ;
         } else {
           var val = value.split(',');
+
           if (val.length == 2) {
             var rgbaColor = getComputedStyle(document.documentElement).getPropertyValue(val[0]);
             rgbaColor = "rgba(" + rgbaColor + "," + val[1] + ")";
@@ -36,12 +38,13 @@ function getChartColorsArray(chartId) {
       });
     }
   }
-}
-
-//
+} //
 // Total Revenue Chart
 //
+
+
 var BarchartTotalReveueColors = getChartColorsArray("total-revenue-chart");
+
 if (BarchartTotalReveueColors) {
   var options1 = {
     series: [{
@@ -90,13 +93,13 @@ if (BarchartTotalReveueColors) {
   };
   var chart1 = new ApexCharts(document.querySelector("#total-revenue-chart"), options1);
   chart1.render();
-}
-
-//
+} //
 // Orders Chart
 //
 
+
 var RadialchartOrdersChartColors = getChartColorsArray("orders-chart");
+
 if (RadialchartOrdersChartColors) {
   var options = {
     fill: {
@@ -131,12 +134,13 @@ if (RadialchartOrdersChartColors) {
   };
   var chart = new ApexCharts(document.querySelector("#orders-chart"), options);
   chart.render();
-}
-
-// 
+} // 
 // Customers Chart
 //
+
+
 var RadialchartCustomersColors = getChartColorsArray("customers-chart");
+
 if (RadialchartCustomersColors) {
   var options = {
     fill: {
@@ -171,12 +175,13 @@ if (RadialchartCustomersColors) {
   };
   var chart = new ApexCharts(document.querySelector("#customers-chart"), options);
   chart.render();
-}
-
-// 
+} // 
 // Growth Chart
 //
+
+
 var BarchartGrowthColors = getChartColorsArray("growth-chart");
+
 if (BarchartGrowthColors) {
   var options2 = {
     series: [{
@@ -225,11 +230,12 @@ if (BarchartGrowthColors) {
   };
   var chart2 = new ApexCharts(document.querySelector("#growth-chart"), options2);
   chart2.render();
-}
-
-//
+} //
 // Sales Analytics Chart
+
+
 var LinechartsalesColors = getChartColorsArray("sales-analytics-chart");
+
 if (LinechartsalesColors) {
   var options = {
     chart: {
@@ -294,6 +300,7 @@ if (LinechartsalesColors) {
           if (typeof y !== "undefined") {
             return y.toFixed(0) + " points";
           }
+
           return y;
         }
       }

@@ -34,7 +34,8 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="email">Email</label>
                                         <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                            name="email" value="{{ old('email') }}" id="email" placeholder="Enter email">
+                                            name="email" value="{{ old('email') }}" id="email"
+                                            placeholder="Enter email">
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -129,10 +130,12 @@
                         </div>
                     </div>
                     <div class="mt-5 text-center">
-                        <p>© <script>
+                        <p>©
+                            <script>
                                 document.write(new Date().getFullYear())
-
-                            </script> Minible. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                            </script> Minible. Crafted with <i class="mdi mdi-heart text-danger"></i> by
+                            Themesbrand
+                        </p>
                     </div>
 
                 </div>

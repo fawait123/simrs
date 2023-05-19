@@ -10,11 +10,11 @@ Website: https://themesbrand.com/
 Contact: themesbrand@gmail.com
 File: Form Advanced Js File
 */
-
 !function ($) {
   "use strict";
 
   var AdvancedForm = function AdvancedForm() {};
+
   AdvancedForm.prototype.init = function () {
     // Select2
     $(".select2").select2();
@@ -23,9 +23,8 @@ File: Form Advanced Js File
     });
     $(".select2-search-disable").select2({
       minimumResultsForSearch: Infinity
-    });
+    }); //colorpicker start
 
-    //colorpicker start
     $("#colorpicker-default").spectrum();
     $("#colorpicker-showalpha").spectrum({
       showAlpha: true
@@ -50,12 +49,10 @@ File: Form Advanced Js File
     $("#colorpicker-showinput-intial").spectrum({
       showInitial: true,
       showInput: true
-    });
+    }); //Bootstrap-TouchSpin
 
-    //Bootstrap-TouchSpin
-    var defaultOptions = {};
+    var defaultOptions = {}; // touchspin
 
-    // touchspin
     $('[data-toggle="touchspin"]').each(function (idx, obj) {
       var objOptions = $.extend({}, defaultOptions, $(obj).data());
       $(obj).TouchSpin(objOptions);
@@ -72,9 +69,8 @@ File: Form Advanced Js File
     });
     $("input[name='demo_vertical']").TouchSpin({
       verticalbuttons: true
-    });
+    }); //Bootstrap-MaxLength
 
-    //Bootstrap-MaxLength
     $('input#defaultconfig').maxlength({
       warningClass: "badge bg-info",
       limitReachedClass: "badge bg-warning"
@@ -109,11 +105,9 @@ File: Form Advanced Js File
       warningClass: "badge bg-info",
       limitReachedClass: "badge bg-warning"
     });
-  },
-  //init
+  }, //init
   $.AdvancedForm = new AdvancedForm(), $.AdvancedForm.Constructor = AdvancedForm;
-}(window.jQuery),
-//Datepicker
+}(window.jQuery), //Datepicker
 function ($) {
   "use strict";
 
@@ -153,6 +147,7 @@ $(function () {
     var name = $target.attr('name');
     var value = target.type === 'checkbox' ? target.checked : $target.val();
     var $optionContainer;
+
     switch (name) {
       case 'container':
         if (value) {
@@ -161,7 +156,9 @@ $(function () {
         } else {
           $container.hide();
         }
+
         break;
+
       case 'trigger':
         if (value) {
           value = $trigger;
@@ -169,17 +166,23 @@ $(function () {
         } else {
           $trigger.prop('disabled', true);
         }
+
         break;
+
       case 'inline':
         $optionContainer = $('input[name="container"]');
+
         if (!$optionContainer.prop('checked')) {
           $optionContainer.click();
         }
+
         break;
+
       case 'language':
         $('input[name="format"]').val($.fn.datepicker.languages[value].format);
         break;
     }
+
     options[name] = value;
     $date.datepicker('reset').datepicker('destroy').datepicker(options);
   });
@@ -188,20 +191,20 @@ $(function () {
     var args = data.arguments || [];
     var result;
     e.stopPropagation();
+
     if (data.method) {
       if (data.source) {
         $date.datepicker(data.method, $(data.source).val());
       } else {
         result = $date.datepicker(data.method, args[0], args[1], args[2]);
+
         if (result && data.target) {
           $(data.target).val(result);
         }
       }
     }
   });
-});
-
-// flatpickr
+}); // flatpickr
 
 flatpickr('#datepicker-basic', {
   defaultDate: new Date()
@@ -221,8 +224,8 @@ flatpickr('#datepicker-minmax', {
   minDate: "today",
   defaultDate: new Date(),
   maxDate: new Date().fp_incr(14) // 14 days from now
-});
 
+});
 flatpickr('#datepicker-disable', {
   onReady: function onReady() {
     this.jumpToDate("2025-01");

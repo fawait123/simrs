@@ -10,20 +10,22 @@ Website: https://themesbrand.com/
 Contact: themesbrand@gmail.com
 File: Sparkline chart Init
 */
-
 function getChartColorsArray(chartId) {
   if (document.getElementById(chartId) !== null) {
     var colors = document.getElementById(chartId).getAttribute("data-colors");
+
     if (colors) {
       colors = JSON.parse(colors);
       return colors.map(function (value) {
         var newValue = value.replace(" ", "");
+
         if (newValue.indexOf(",") === -1) {
           var color = getComputedStyle(document.documentElement).getPropertyValue(newValue);
           if (color) return color;else return newValue;
           ;
         } else {
           var val = value.split(',');
+
           if (val.length == 2) {
             var rgbaColor = getComputedStyle(document.documentElement).getPropertyValue(val[0]);
             rgbaColor = "rgba(" + rgbaColor + "," + val[1] + ")";
@@ -36,9 +38,11 @@ function getChartColorsArray(chartId) {
     }
   }
 }
+
 $(document).ready(function () {
   var SparklineCharts = function SparklineCharts() {
     var sparklineChart1Colors = getChartColorsArray("sparkline1");
+
     if (sparklineChart1Colors) {
       $('#sparkline1').sparkline([20, 40, 30], {
         type: 'pie',
@@ -47,7 +51,9 @@ $(document).ready(function () {
         sliceColors: ['#f1b44c', '#5b73e8', '#e9ecef']
       });
     }
+
     var sparklineCharts2Colors = getChartColorsArray("sparkline2");
+
     if (sparklineCharts2Colors) {
       $("#sparkline2").sparkline([5, 6, 2, 8, 9, 4, 7, 10, 11, 12, 10, 4, 7, 10], {
         type: 'bar',
@@ -57,7 +63,9 @@ $(document).ready(function () {
         barColor: '#f1b44c'
       });
     }
+
     var sparklineCharts3Colors = getChartColorsArray("sparkline3");
+
     if (sparklineCharts3Colors) {
       $('#sparkline3').sparkline([5, 6, 2, 9, 4, 7, 10, 12, 4, 7, 10], {
         type: 'bar',
@@ -78,7 +86,9 @@ $(document).ready(function () {
         highlightSpotColor: 'rgba(0,0,0,.2)'
       });
     }
+
     var sparklineCharts4Colors = getChartColorsArray("sparkline4");
+
     if (sparklineCharts4Colors) {
       $("#sparkline4").sparkline([0, 23, 43, 35, 44, 45, 56, 37, 40, 45, 56, 7, 10], {
         type: 'line',
@@ -94,7 +104,9 @@ $(document).ready(function () {
         highlightLineColor: undefined
       });
     }
+
     var sparklineCharts5Colors = getChartColorsArray("sparkline5");
+
     if (sparklineCharts5Colors) {
       $('#sparkline5').sparkline([15, 23, 55, 35, 54, 45, 66, 47, 30], {
         type: 'line',
@@ -120,7 +132,9 @@ $(document).ready(function () {
         highlightSpotColor: 'rgba(0,0,0,.2)'
       });
     }
+
     var sparklineCharts6Colors = getChartColorsArray("sparkline6");
+
     if (sparklineCharts6Colors) {
       $("#sparkline6").sparkline([4, 6, 7, 7, 4, 3, 2, 1, 4, 4, 5, 6, 3, 4, 5, 8, 7, 6, 9, 3, 2, 4, 1, 5, 6, 4, 3, 7], {
         type: 'discrete',
@@ -129,7 +143,9 @@ $(document).ready(function () {
         lineColor: '#ffffff'
       });
     }
+
     var sparklineCharts7Colors = getChartColorsArray("sparkline7");
+
     if (sparklineCharts7Colors) {
       $('#sparkline7').sparkline([10, 12, 12, 9, 7], {
         type: 'bullet',
@@ -139,7 +155,9 @@ $(document).ready(function () {
         performanceColor: '#f1b44c'
       });
     }
+
     var sparklineCharts8Colors = getChartColorsArray("sparkline8");
+
     if (sparklineCharts8Colors) {
       $('#sparkline8').sparkline([4, 27, 34, 52, 54, 59, 61, 68, 78, 82, 85, 87, 91, 93, 100], {
         type: 'box',
@@ -153,7 +171,9 @@ $(document).ready(function () {
         targetColor: '#34c38f'
       });
     }
+
     var sparklineCharts9Colors = getChartColorsArray("sparkline9");
+
     if (sparklineCharts9Colors) {
       $('#sparkline9').sparkline([1, 1, 0, 1, -1, -1, 1, -1, 0, 0, 1, 1], {
         height: '80',
@@ -168,6 +188,7 @@ $(document).ready(function () {
       });
     }
   };
+
   var sparkResize;
   $(window).resize(function (e) {
     clearTimeout(sparkResize);

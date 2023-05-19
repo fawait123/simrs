@@ -53,7 +53,7 @@ class AuthController extends Controller
             'password'=>'required|confirmed',
         ]);
 
-        \App\Models\User::create([
+        $user = \App\Models\User::create([
             'email'=>$request->email,
             'name'=>$request->name,
             'password'=>Hash::make($request->password),
@@ -62,6 +62,8 @@ class AuthController extends Controller
             'prefix'=>'App\Models\Identity',
             'is_verified'=>0
         ]);
+
+        event(new \App\Events\RegistrationEvent($user));
 
         return redirect()->route('login')->withErrors(['email'=>'Account creaated, please wait admin to approve your account']);
     }

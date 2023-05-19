@@ -10,21 +10,18 @@ Website: https://themesbrand.com/
 Contact: themesbrand@gmail.com
 File: Rating Js File
 */
-
 $(document).ready(function () {
   // Default rating
   $('#example-rating').barrating({
     theme: 'fontawesome-stars',
     showSelectedRating: false
-  });
+  }); // CSS Stars
 
-  // CSS Stars
   $('#rating-css').barrating({
     theme: 'css-stars',
     showSelectedRating: false
-  });
+  }); // Current rating
 
-  // Current rating
   var currentRating = $('#rating-current-fontawesome-o').data('current-rating');
   $('.stars-example-fontawesome-o .current-rating').find('span').html(currentRating);
   $('.stars-example-fontawesome-o .clear-rating').on('click', function (event) {
@@ -46,26 +43,22 @@ $(document).ready(function () {
     onClear: function onClear(value, text) {
       $('.stars-example-fontawesome-o').find('.current-rating').removeClass('hidden').end().find('.your-rating').addClass('hidden');
     }
-  });
+  }); // rating-1to10
 
-  // rating-1to10
   $('#rating-1to10').barrating('show', {
     theme: 'bars-1to10'
-  });
+  }); // rating-movie
 
-  // rating-movie
   $('#rating-movie').barrating('show', {
     theme: 'bars-movie'
-  });
+  }); // rating square
 
-  // rating square
   $('#rating-square').barrating('show', {
     theme: 'bars-square',
     showValues: true,
     showSelectedRating: false
-  });
+  }); // rating-pill
 
-  // rating-pill
   $('#rating-pill').barrating('show', {
     theme: 'bars-pill',
     initialRating: 'A',
@@ -76,16 +69,14 @@ $(document).ready(function () {
     onSelect: function onSelect(value, text) {
       alert('Selected rating: ' + value);
     }
-  });
+  }); // rating-reversed
 
-  // rating-reversed
   $('#rating-reversed').barrating('show', {
     theme: 'bars-reversed',
     showSelectedRating: true,
     reverse: true
-  });
+  }); // rating-reversed
 
-  // rating-reversed
   $('#rating-horizontal').barrating('show', {
     theme: 'bars-horizontal',
     reverse: true,

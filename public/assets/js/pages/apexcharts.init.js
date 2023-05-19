@@ -10,22 +10,23 @@ Website: https://themesbrand.com/
 Contact: themesbrand@gmail.com
 File: Apex Chart init js
 */
-
 //  line chart datalabel
-
 function getChartColorsArray(chartId) {
   if (document.getElementById(chartId) !== null) {
     var colors = document.getElementById(chartId).getAttribute("data-colors");
+
     if (colors) {
       colors = JSON.parse(colors);
       return colors.map(function (value) {
         var newValue = value.replace(" ", "");
+
         if (newValue.indexOf(",") === -1) {
           var color = getComputedStyle(document.documentElement).getPropertyValue(newValue);
           if (color) return color;else return newValue;
           ;
         } else {
           var val = value.split(',');
+
           if (val.length == 2) {
             var rgbaColor = getComputedStyle(document.documentElement).getPropertyValue(val[0]);
             rgbaColor = "rgba(" + rgbaColor + "," + val[1] + ")";
@@ -38,7 +39,9 @@ function getChartColorsArray(chartId) {
     }
   }
 }
+
 var LinechartDatalabelColors = getChartColorsArray("line_chart_datalabel");
+
 if (LinechartDatalabelColors) {
   var options = {
     chart: {
@@ -118,10 +121,11 @@ if (LinechartDatalabelColors) {
   };
   var chart = new ApexCharts(document.querySelector("#line_chart_datalabel"), options);
   chart.render();
-}
+} //  line chart datalabel
 
-//  line chart datalabel
+
 var LinechartDashedColors = getChartColorsArray("line_chart_dashed");
+
 if (LinechartDashedColors) {
   var options = {
     chart: {
@@ -193,10 +197,11 @@ if (LinechartDashedColors) {
   };
   var chart = new ApexCharts(document.querySelector("#line_chart_dashed"), options);
   chart.render();
-}
+} //   spline_area
 
-//   spline_area
+
 var AreachartSplineColors = getChartColorsArray("spline_area");
+
 if (AreachartSplineColors) {
   var options = {
     chart: {
@@ -233,10 +238,11 @@ if (AreachartSplineColors) {
   };
   var chart = new ApexCharts(document.querySelector("#spline_area"), options);
   chart.render();
-}
+} // column chart
 
-// column chart
+
 var BarchartColumnColors = getChartColorsArray("column_chart");
+
 if (BarchartColumnColors) {
   var options = {
     chart: {
@@ -296,10 +302,11 @@ if (BarchartColumnColors) {
   };
   var chart = new ApexCharts(document.querySelector("#column_chart"), options);
   chart.render();
-}
+} // column chart with datalabels
 
-// column chart with datalabels
+
 var BarchartColumnChartColors = getChartColorsArray("column_chart_datalabel");
+
 if (BarchartColumnChartColors) {
   var options = {
     chart: {
@@ -313,10 +320,10 @@ if (BarchartColumnChartColors) {
       bar: {
         dataLabels: {
           position: 'top' // top, center, bottom
+
         }
       }
     },
-
     dataLabels: {
       enabled: true,
       formatter: function formatter(val) {
@@ -403,10 +410,11 @@ if (BarchartColumnChartColors) {
   };
   var chart = new ApexCharts(document.querySelector("#column_chart_datalabel"), options);
   chart.render();
-}
+} // Bar chart
 
-// Bar chart
+
 var BarchartBarColors = getChartColorsArray("bar_chart");
+
 if (BarchartBarColors) {
   var options = {
     chart: {
@@ -437,10 +445,11 @@ if (BarchartBarColors) {
   };
   var chart = new ApexCharts(document.querySelector("#bar_chart"), options);
   chart.render();
-}
+} // Mixed chart
 
-// Mixed chart
+
 var LinechartMixedColors = getChartColorsArray("mixed_chart");
+
 if (LinechartMixedColors) {
   var options = {
     chart: {
@@ -505,6 +514,7 @@ if (LinechartMixedColors) {
           if (typeof y !== "undefined") {
             return y.toFixed(0) + " points";
           }
+
           return y;
         }
       }
@@ -515,10 +525,11 @@ if (LinechartMixedColors) {
   };
   var chart = new ApexCharts(document.querySelector("#mixed_chart"), options);
   chart.render();
-}
+} //  Radial chart
 
-//  Radial chart
+
 var RadiachartRadialColors = getChartColorsArray("radial_chart");
+
 if (RadiachartRadialColors) {
   var options = {
     chart: {
@@ -551,10 +562,11 @@ if (RadiachartRadialColors) {
   };
   var chart = new ApexCharts(document.querySelector("#radial_chart"), options);
   chart.render();
-}
+} // pie chart
 
-// pie chart
+
 var PiechartPieColors = getChartColorsArray("pie_chart");
+
 if (PiechartPieColors) {
   var options = {
     chart: {
@@ -587,10 +599,11 @@ if (PiechartPieColors) {
   };
   var chart = new ApexCharts(document.querySelector("#pie_chart"), options);
   chart.render();
-}
+} // Donut chart
 
-// Donut chart
+
 var DonutchartDonutColors = getChartColorsArray("donut_chart");
+
 if (DonutchartDonutColors) {
   var options = {
     chart: {
