@@ -109,6 +109,7 @@
             </div>
             {{-- end mode option --}}
 
+            {{-- aplikasi --}}
             <div class="dropdown d-none d-lg-inline-block ms-1">
                 <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
@@ -118,50 +119,45 @@
                     <div class="px-lg-2">
                         <div class="row g-0">
                             <div class="col">
-                                <a class="dropdown-icon-item" href="#">
-                                    <img src="{{ URL::asset('/assets/images/brands/github.png') }}" alt="Github">
-                                    <span>GitHub</span>
+                                <a class="dropdown-icon-item" href="{{ route('registration') }}">
+                                    <img src="{{ URL::asset('/assets/images/brands/registration.svg') }}"
+                                        alt="@lang('menu.registration')" style="width: 50px; height: 50px;">
+                                    <span>@lang('menu.registration')</span>
                                 </a>
                             </div>
                             <div class="col">
                                 <a class="dropdown-icon-item" href="#">
-                                    <img src="{{ URL::asset('/assets/images/brands/bitbucket.png') }}"
-                                        alt="bitbucket">
-                                    <span>Bitbucket</span>
+                                    <img src="{{ URL::asset('/assets/images/brands/tracking.svg') }}"
+                                        alt="@lang('menu.tracker')" style="width: 50px; height: 50px;">
+                                    <span>@lang('menu.tracker')</span>
                                 </a>
                             </div>
                             <div class="col">
                                 <a class="dropdown-icon-item" href="#">
-                                    <img src="{{ URL::asset('/assets/images/brands/dribbble.png') }}" alt="dribbble">
-                                    <span>Dribbble</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="row g-0">
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="#">
-                                    <img src="{{ URL::asset('/assets/images/brands/dropbox.png') }}" alt="dropbox">
-                                    <span>Dropbox</span>
+                                    <img src="{{ URL::asset('/assets/images/brands/medicine.svg') }}"
+                                        alt="@lang('menu.rekam_medis')" style="width: 50px; height: 50px;">
+                                    <span>@lang('menu.rekam_medis')</span>
                                 </a>
                             </div>
                             <div class="col">
                                 <a class="dropdown-icon-item" href="#">
-                                    <img src="{{ URL::asset('/assets/images/brands/mail_chimp.png') }}"
-                                        alt="mail_chimp">
-                                    <span>Mail Chimp</span>
+                                    <img src="{{ URL::asset('/assets/images/brands/queue.svg') }}"
+                                        alt="@lang('menu.queue')" style="width: 50px; height: 50px;">
+                                    <span>@lang('menu.queue')</span>
                                 </a>
                             </div>
                             <div class="col">
                                 <a class="dropdown-icon-item" href="#">
-                                    <img src="{{ URL::asset('/assets/images/brands/slack.png') }}" alt="slack">
-                                    <span>Slack</span>
+                                    <img src="{{ URL::asset('/assets/images/brands/monitor.svg') }}"
+                                        alt="@lang('menu.monitor')" style="width: 50px; height: 50px;">
+                                    <span>@lang('menu.monitor')</span>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {{-- end aplikasi --}}
 
             <div class="dropdown d-none d-lg-inline-block ms-1">
                 <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
@@ -360,15 +356,21 @@
                             {{-- end menu master data --}}
                         @endif
 
+                        {{-- aplikasi --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-pages"
                                 role="button">
-                                <i class="uil-apps me-2"></i>@lang('translation.Apps') <div class="arrow-down"></div>
+                                <i class="uil-apps me-2"></i>@lang('menu.apps') <div class="arrow-down"></div>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="topnav-pages">
-                                <a href="calendar" class="dropdown-item">@lang('translation.Calendar')</a>
+                                <a href="{{ route('registration') }}" class="dropdown-item">@lang('menu.registration')</a>
+                                <a href="calendar" class="dropdown-item">@lang('menu.tracker')</a>
+                                <a href="calendar" class="dropdown-item">@lang('menu.rekam_medis')</a>
+                                <a href="calendar" class="dropdown-item">@lang('menu.queue')</a>
+                                <a href="calendar" class="dropdown-item">@lang('menu.monitor')</a>
                             </div>
                         </li>
+                        {{-- end aplikasi --}}
 
                     </ul>
                 </div>
