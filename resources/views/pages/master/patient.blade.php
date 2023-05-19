@@ -59,7 +59,7 @@
                                         <td>{{ $item->gender == 'L' ? 'Laki Laki' : 'Perempuan' }}</td>
                                         <td>{{ $item->placebirth }}</td>
                                         <td>{{ date('d M Y', strtotime($item->birthdate)) }}</td>
-                                        <td>{{ $item->age }}</td>
+                                        <td>{{ round($item->age / 365) }}</td>
                                         <td>{{ $item->academic }}</td>
                                         <td>{{ $item->religion }}</td>
                                         <td>{{ $item->work }}</td>

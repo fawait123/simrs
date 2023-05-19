@@ -16,6 +16,11 @@ Route::post('logout',[App\Http\Controllers\AuthController::class,'logout'])->nam
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('home')->middleware('auth');
 Route::get('setting',[App\Http\Controllers\HomeController::class, 'setting'])->name('setting')->middleware('auth');
+Route::post('setting',[App\Http\Controllers\HomeController::class, 'settingAction'])->name('setting')->middleware('auth');
+Route::get('setting/patient',[App\Http\Controllers\HomeController::class, 'patient'])->name('patient')->middleware('auth');
+Route::get('setting/patient/{id}',[App\Http\Controllers\HomeController::class, 'patientEdit'])->name('setting.patient.edit')->middleware('auth');
+Route::post('setting/patient',[App\Http\Controllers\HomeController::class, 'patientStore'])->name('setting.patient.store')->middleware('auth');
+Route::put('setting/patient/{id}',[App\Http\Controllers\HomeController::class, 'patientUpdate'])->name('setting.patient.update')->middleware('auth');
 
 //route Language Translation
 Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang'])->middleware('auth');
