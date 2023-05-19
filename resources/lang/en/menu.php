@@ -11,5 +11,7 @@ return [
     "registration"=>"Registration",
     "tracker"=>"Tracker",
     "rekam_medis"=>"Medical Record",
-    "apps"=>"Apps"
+    "apps"=>"Apps",
+    "queue"=>"List Queues Check",
+    "monitor"=>"Monitoring"
 ];

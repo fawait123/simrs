@@ -139,6 +139,20 @@
                                     <span>@lang('menu.rekam_medis')</span>
                                 </a>
                             </div>
+                            <div class="col">
+                                <a class="dropdown-icon-item" href="#">
+                                    <img src="{{ URL::asset('/assets/images/brands/queue.svg') }}"
+                                        alt="@lang('menu.queue')" style="width: 50px; height: 50px;">
+                                    <span>@lang('menu.queue')</span>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a class="dropdown-icon-item" href="#">
+                                    <img src="{{ URL::asset('/assets/images/brands/monitor.svg') }}"
+                                        alt="@lang('menu.monitor')" style="width: 50px; height: 50px;">
+                                    <span>@lang('menu.monitor')</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -352,6 +366,8 @@
                                 <a href="{{ route('registration') }}" class="dropdown-item">@lang('menu.registration')</a>
                                 <a href="calendar" class="dropdown-item">@lang('menu.tracker')</a>
                                 <a href="calendar" class="dropdown-item">@lang('menu.rekam_medis')</a>
+                                <a href="calendar" class="dropdown-item">@lang('menu.queue')</a>
+                                <a href="calendar" class="dropdown-item">@lang('menu.monitor')</a>
                             </div>
                         </li>
                         {{-- end aplikasi --}}

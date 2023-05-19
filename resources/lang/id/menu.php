@@ -11,5 +11,7 @@ return [
     "registration"=>"Registrasi",
     "tracker"=>"Traking",
     "rekam_medis"=>"Rekam Medis",
-    "apps"=>"Aplikasi"
+    "apps"=>"Aplikasi",
+    "queue"=>"Daftar Antrian Periksa",
+    "monitor"=>"Monitoring"
 ];
