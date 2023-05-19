@@ -1,4 +1,5 @@
 {
+    "/js/websocket.js": "/js/websocket.js",
     "/assets/js/pages/alerts.init.js": "/assets/js/pages/alerts.init.js",
     "/assets/js/pages/apexcharts.init.js": "/assets/js/pages/apexcharts.init.js",
     "/assets/js/pages/auth-carousel.init.js": "/assets/js/pages/auth-carousel.init.js",
@@ -349,6 +350,7 @@
     "/assets/images/favicon.ico": "/assets/images/favicon.ico",
     "/assets/images/flags/french.jpg": "/assets/images/flags/french.jpg",
     "/assets/images/flags/germany.jpg": "/assets/images/flags/germany.jpg",
+    "/assets/images/flags/id.png": "/assets/images/flags/id.png",
     "/assets/images/flags/italy.jpg": "/assets/images/flags/italy.jpg",
     "/assets/images/flags/russia.jpg": "/assets/images/flags/russia.jpg",
     "/assets/images/flags/select2/ak.png": "/assets/images/flags/select2/ak.png",

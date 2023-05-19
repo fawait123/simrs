@@ -10,13 +10,12 @@ Website: https://themesbrand.com/
 Contact: themesbrand@gmail.com
 File: Sweetalert Js File
 */
-
 !function ($) {
   "use strict";
 
-  var SweetAlert = function SweetAlert() {};
+  var SweetAlert = function SweetAlert() {}; //examples
 
-  //examples
+
   SweetAlert.prototype.init = function () {
     //Basic
     $('#sa-basic').on('click', function () {
@@ -24,9 +23,8 @@ File: Sweetalert Js File
         title: 'Any fool can use a computer',
         confirmButtonColor: '#5b73e8'
       });
-    });
+    }); //A title with a text under
 
-    //A title with a text under
     $('#sa-title').click(function () {
       Swal.fire({
         title: "The Internet?",
@@ -34,9 +32,8 @@ File: Sweetalert Js File
         icon: 'question',
         confirmButtonColor: '#5b73e8'
       });
-    });
+    }); //Success Message
 
-    //Success Message
     $('#sa-success').click(function () {
       Swal.fire({
         title: 'Good job!',
@@ -46,9 +43,8 @@ File: Sweetalert Js File
         confirmButtonColor: '#5b73e8',
         cancelButtonColor: "#f46a6a"
       });
-    });
+    }); //Warning Message
 
-    //Warning Message
     $('#sa-warning').click(function () {
       Swal.fire({
         title: "Are you sure?",
@@ -63,9 +59,8 @@ File: Sweetalert Js File
           Swal.fire("Deleted!", "Your file has been deleted.", "success");
         }
       });
-    });
+    }); //Parameter
 
-    //Parameter
     $('#sa-params').click(function () {
       Swal.fire({
         title: 'Are you sure?',
@@ -85,8 +80,7 @@ File: Sweetalert Js File
             icon: 'success',
             confirmButtonColor: "#34c38f"
           });
-        } else if (
-        // Read more about handling dismissals
+        } else if ( // Read more about handling dismissals
         result.dismiss === Swal.DismissReason.cancel) {
           Swal.fire({
             title: 'Cancelled',
@@ -95,9 +89,8 @@ File: Sweetalert Js File
           });
         }
       });
-    });
+    }); //Custom Image
 
-    //Custom Image
     $('#sa-image').click(function () {
       Swal.fire({
         title: 'Sweet!',
@@ -107,9 +100,8 @@ File: Sweetalert Js File
         confirmButtonColor: "#5b73e8",
         animation: false
       });
-    });
+    }); //Auto Close Timer
 
-    //Auto Close Timer
     $('#sa-close').click(function () {
       var timerInterval;
       Swal.fire({
@@ -127,15 +119,13 @@ File: Sweetalert Js File
           clearInterval(timerInterval);
         }
       }).then(function (result) {
-        if (
-        // Read more about handling dismissals
+        if ( // Read more about handling dismissals
         result.dismiss === Swal.DismissReason.timer) {
           console.log('I was closed by the timer');
         }
       });
-    });
+    }); //custom html alert
 
-    //custom html alert
     $('#custom-html-alert').click(function () {
       Swal.fire({
         title: '<i>HTML</i> <u>example</u>',
@@ -150,9 +140,8 @@ File: Sweetalert Js File
         confirmButtonText: '<i class="fas fa-thumbs-up me-1"></i> Great!',
         cancelButtonText: '<i class="fas fa-thumbs-down"></i>'
       });
-    });
+    }); //position
 
-    //position
     $('#sa-position').click(function () {
       Swal.fire({
         position: 'top-end',
@@ -161,9 +150,8 @@ File: Sweetalert Js File
         showConfirmButton: false,
         timer: 1500
       });
-    });
+    }); //Custom width padding
 
-    //Custom width padding
     $('#custom-padding-width-alert').click(function () {
       Swal.fire({
         title: 'Custom width, padding, background.',
@@ -172,9 +160,8 @@ File: Sweetalert Js File
         confirmButtonColor: "#5b73e8",
         background: '#fff url(//subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/geometry.png)'
       });
-    });
+    }); //Ajax
 
-    //Ajax
     $('#ajax-alert').click(function () {
       Swal.fire({
         title: 'Submit email to run ajax request',
@@ -205,9 +192,8 @@ File: Sweetalert Js File
           html: 'Submitted email: ' + email
         });
       });
-    });
+    }); //chaining modal alert
 
-    //chaining modal alert
     $('#chaining-alert').click(function () {
       Swal.mixin({
         input: 'text',
@@ -230,9 +216,8 @@ File: Sweetalert Js File
           });
         }
       });
-    });
+    }); //Danger
 
-    //Danger
     $('#dynamic-alert').click(function () {
       swal.queue([{
         title: 'Your public IP',
@@ -250,11 +235,9 @@ File: Sweetalert Js File
         }
       }])["catch"](swal.noop);
     });
-  },
-  //init
+  }, //init
   $.SweetAlert = new SweetAlert(), $.SweetAlert.Constructor = SweetAlert;
-}(window.jQuery),
-//initializing
+}(window.jQuery), //initializing
 function ($) {
   "use strict";
 

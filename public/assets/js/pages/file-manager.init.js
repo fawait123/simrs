@@ -10,22 +10,23 @@ Website: https://themesbrand.com/
 Contact: themesbrand@gmail.com
 File: file manager init js
 */
-
 //  line chart datalabel
-
 function getChartColorsArray(chartId) {
   if (document.getElementById(chartId) !== null) {
     var colors = document.getElementById(chartId).getAttribute("data-colors");
+
     if (colors) {
       colors = JSON.parse(colors);
       return colors.map(function (value) {
         var newValue = value.replace(" ", "");
+
         if (newValue.indexOf(",") === -1) {
           var color = getComputedStyle(document.documentElement).getPropertyValue(newValue);
           if (color) return color;else return newValue;
           ;
         } else {
           var val = value.split(',');
+
           if (val.length == 2) {
             var rgbaColor = getComputedStyle(document.documentElement).getPropertyValue(val[0]);
             rgbaColor = "rgba(" + rgbaColor + "," + val[1] + ")";
@@ -37,10 +38,11 @@ function getChartColorsArray(chartId) {
       });
     }
   }
-}
+} //  Sales Statistics
 
-//  Sales Statistics
+
 var BarchartOverviewColors = getChartColorsArray("overview");
+
 if (BarchartOverviewColors) {
   var options = {
     series: [{
