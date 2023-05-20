@@ -133,7 +133,7 @@
                                 </a>
                             </div>
                             <div class="col">
-                                <a class="dropdown-icon-item" href="#">
+                                <a class="dropdown-icon-item" href="{{ route('medical-record.index') }}">
                                     <img src="{{ URL::asset('/assets/images/brands/medicine.svg') }}"
                                         alt="@lang('menu.rekam_medis')" style="width: 50px; height: 50px;">
                                     <span>@lang('menu.rekam_medis')</span>
