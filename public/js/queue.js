@@ -2092,28 +2092,6 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
 
 /***/ }),
 
-/***/ "./resources/js/websocket.js":
-/*!***********************************!*\
-  !*** ./resources/js/websocket.js ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // registration event
-
-
-var toastLiveExample = document.getElementById("liveToast");
-Echo.channel("registration-channel").listen("RegistrationEvent", function (e) {
-  var data = e.user;
-  document.getElementById("detail-toastr").innerText = (data === null || data === void 0 ? void 0 : data.name) + " melakukan pendaftaran akun baru";
-  var toast = new bootstrap.Toast(toastLiveExample);
-
-  if (user.role == "admin") {
-    toast.show();
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/laravel-echo/dist/echo.js":
 /*!************************************************!*\
   !*** ./node_modules/laravel-echo/dist/echo.js ***!
@@ -21014,45 +20992,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
-/***/ "./resources/scss/bootstrap.scss":
-/*!***************************************!*\
-  !*** ./resources/scss/bootstrap.scss ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/scss/icons.scss":
-/*!***********************************!*\
-  !*** ./resources/scss/icons.scss ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/scss/app.scss":
-/*!*********************************!*\
-  !*** ./resources/scss/app.scss ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -26287,42 +26226,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/chunk loaded */
-/******/ 	(() => {
-/******/ 		var deferred = [];
-/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
-/******/ 			if(chunkIds) {
-/******/ 				priority = priority || 0;
-/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
-/******/ 				deferred[i] = [chunkIds, fn, priority];
-/******/ 				return;
-/******/ 			}
-/******/ 			var notFulfilled = Infinity;
-/******/ 			for (var i = 0; i < deferred.length; i++) {
-/******/ 				var [chunkIds, fn, priority] = deferred[i];
-/******/ 				var fulfilled = true;
-/******/ 				for (var j = 0; j < chunkIds.length; j++) {
-/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
-/******/ 						chunkIds.splice(j--, 1);
-/******/ 					} else {
-/******/ 						fulfilled = false;
-/******/ 						if(priority < notFulfilled) notFulfilled = priority;
-/******/ 					}
-/******/ 				}
-/******/ 				if(fulfilled) {
-/******/ 					deferred.splice(i--, 1)
-/******/ 					var r = fn();
-/******/ 					if (r !== undefined) result = r;
-/******/ 				}
-/******/ 			}
-/******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -26372,72 +26276,42 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		// no baseURI
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			"/js/websocket": 0,
-/******/ 			"assets/css/app": 0,
-/******/ 			"assets/css/icons": 0,
-/******/ 			"assets/css/bootstrap": 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
-/******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
-/******/ 			var [chunkIds, moreModules, runtime] = data;
-/******/ 			// add "moreModules" to the modules object,
-/******/ 			// then flag all "chunkIds" as loaded and fire callback
-/******/ 			var moduleId, chunkId, i = 0;
-/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
-/******/ 				for(moduleId in moreModules) {
-/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
-/******/ 					}
-/******/ 				}
-/******/ 				if(runtime) var result = runtime(__webpack_require__);
-/******/ 			}
-/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
-/******/ 			for(;i < chunkIds.length; i++) {
-/******/ 				chunkId = chunkIds[i];
-/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 					installedChunks[chunkId][0]();
-/******/ 				}
-/******/ 				installedChunks[chunkId] = 0;
-/******/ 			}
-/******/ 			return __webpack_require__.O(result);
-/******/ 		}
-/******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunkminible"] = self["webpackChunkminible"] || [];
-/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
-/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 	})();
-/******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["assets/css/app","assets/css/icons","assets/css/bootstrap"], () => (__webpack_require__("./resources/js/websocket.js")))
-/******/ 	__webpack_require__.O(undefined, ["assets/css/app","assets/css/icons","assets/css/bootstrap"], () => (__webpack_require__("./resources/scss/bootstrap.scss")))
-/******/ 	__webpack_require__.O(undefined, ["assets/css/app","assets/css/icons","assets/css/bootstrap"], () => (__webpack_require__("./resources/scss/icons.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["assets/css/app","assets/css/icons","assets/css/bootstrap"], () => (__webpack_require__("./resources/scss/app.scss")))
-/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+/*!*******************************!*\
+  !*** ./resources/js/queue.js ***!
+  \*******************************/
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+function getData() {
+  fetch(url).then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    var results = data.results;
+
+    if (results.length > 0) {
+      var html = "";
+      results.map(function (el, index) {
+        var _el$patient, _el$patient2, _el$patient3;
+
+        var name = (el === null || el === void 0 ? void 0 : (_el$patient = el.patient) === null || _el$patient === void 0 ? void 0 : _el$patient.name) || "";
+        html += "<tr style=\"background: ".concat(index == 0 ? "#19376D" : el.userID == userID ? "#A5D7E8" : "", "\">\n                                <td>\n                                    <div\n                                        style=\"width: 50px; height: 50px; background: ").concat(index == 0 ? "#A5D7E8" : "#19376D", "; border-radius: 50%;display: flex; align-items: center; justify-content: center;\">\n                                        <b class=\"text-white\">").concat(name[0], "</b>\n                                    </div>\n                                </td>\n                                <td>\n                                    <h6 class=\"font-size-15 mb-1 fw-normal\" style=\"color:").concat(index == 0 ? "white" : "", "\"><b>").concat(el === null || el === void 0 ? void 0 : (_el$patient2 = el.patient) === null || _el$patient2 === void 0 ? void 0 : _el$patient2.name, "</b></h6>\n                                    <p class=\"text-muted font-size-13 mb-0\"><i\n                                            class=\"mdi mdi-map-marker\"></i> ").concat(el === null || el === void 0 ? void 0 : (_el$patient3 = el.patient) === null || _el$patient3 === void 0 ? void 0 : _el$patient3.village, "</p>\n                                </td>\n                                <td>\n                                    <b  style=\"color:").concat(index == 0 ? "white" : "", "\">").concat(el.registrationID, "</b>\n                                </td>\n                                <td>\n                                    <b  style=\"color:").concat(index == 0 ? "white" : "", "\">").concat(++index, "</b>\n                                </td>\n                            </tr>");
+      });
+      document.getElementById("list-data-queue").innerHTML = html;
+      document.getElementById("queue-total").innerText = results.length;
+    }
+  });
+}
+
+getData();
+console.log("okey connect...");
+Echo.channel("queue-channel").listen("QueueEvent", function (e) {
+  console.log("event register");
+  getData();
+});
+})();
+
 /******/ })()
 ;
