@@ -36,6 +36,10 @@ Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang'
 Route::get('layout/{type}', [App\Http\Controllers\HomeController::class, 'layout'])->middleware('auth');
 Route::post('/formsubmit', [App\Http\Controllers\HomeController::class, 'FormSubmit'])->name('FormSubmit')->middleware('auth');
 
+// route rekam medis
+Route::get('medical-record',[\App\Http\Controllers\MedicalRecordController::class,'index'])->name('medical-record.index')->middleware('auth');
+Route::post('medical-record',[\App\Http\Controllers\MedicalRecordController::class,'store'])->name('medical-record.store')->middleware('auth');
+
 // route tambahan
 Route::group(['prefix'=>'pages','middleware'=>['auth','role:admin']],function(){
     // master data
