@@ -140,7 +140,7 @@
                                 </a>
                             </div>
                             <div class="col">
-                                <a class="dropdown-icon-item" href="#">
+                                <a class="dropdown-icon-item" href="{{ route('list.queue') }}">
                                     <img src="{{ URL::asset('/assets/images/brands/queue.svg') }}"
                                         alt="@lang('menu.queue')" style="width: 50px; height: 50px;">
                                     <span>@lang('menu.queue')</span>

@@ -25,6 +25,11 @@ Route::put('setting/patient/{id}',[App\Http\Controllers\HomeController::class, '
 
 // route registrasi
 Route::get('registration',[App\Http\Controllers\RegistrationController::class,'index'])->name('registration')->middleware('auth');
+Route::post('registration',[App\Http\Controllers\RegistrationController::class,'submit'])->name('registration')->middleware('auth');
+
+// list queue check
+Route::get('list-queue-check',[App\Http\Controllers\QueueController::class,'index'])->name('list.queue')->middleware('auth');
+Route::get('list-queue-check/json',[App\Http\Controllers\QueueController::class,'json'])->name('list.queue.json')->middleware('auth');
 
 //route Language Translation
 Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang'])->middleware('auth');

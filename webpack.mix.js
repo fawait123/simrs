@@ -8,7 +8,10 @@ const folder = {
 };
 
 // mix.js("resources/js/bootstrap.js", "public/js");
-mix.js("resources/js/websocket.js", "public/js");
+mix.js("resources/js/websocket.js", "public/js").js(
+    "resources/js/queue.js",
+    "public/js"
+);
 
 /*
  |--------------------------------------------------------------------------
