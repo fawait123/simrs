@@ -118,27 +118,32 @@
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                     <div class="px-lg-2">
                         <div class="row g-0">
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="{{ route('registration') }}">
-                                    <img src="{{ URL::asset('/assets/images/brands/registration.svg') }}"
-                                        alt="@lang('menu.registration')" style="width: 50px; height: 50px;">
-                                    <span>@lang('menu.registration')</span>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="#">
-                                    <img src="{{ URL::asset('/assets/images/brands/tracking.svg') }}"
-                                        alt="@lang('menu.tracker')" style="width: 50px; height: 50px;">
-                                    <span>@lang('menu.tracker')</span>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="{{ route('medical-record.index') }}">
-                                    <img src="{{ URL::asset('/assets/images/brands/medicine.svg') }}"
-                                        alt="@lang('menu.rekam_medis')" style="width: 50px; height: 50px;">
-                                    <span>@lang('menu.rekam_medis')</span>
-                                </a>
-                            </div>
+                            @if (auth()->user()->role == 'user')
+                                <div class="col">
+                                    <a class="dropdown-icon-item" href="{{ route('registration') }}">
+                                        <img src="{{ URL::asset('/assets/images/brands/registration.svg') }}"
+                                            alt="@lang('menu.registration')" style="width: 50px; height: 50px;">
+                                        <span>@lang('menu.registration')</span>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a class="dropdown-icon-item" href="#" data-bs-toggle="modal"
+                                        data-bs-target="#modal-tracking">
+                                        <img src="{{ URL::asset('/assets/images/brands/tracking.svg') }}"
+                                            alt="@lang('menu.tracker')" style="width: 50px; height: 50px;">
+                                        <span>@lang('menu.tracker')</span>
+                                    </a>
+                                </div>
+                            @endif
+                            @if (auth()->user()->role == 'doctor')
+                                <div class="col">
+                                    <a class="dropdown-icon-item" href="{{ route('medical-record.index') }}">
+                                        <img src="{{ URL::asset('/assets/images/brands/medicine.svg') }}"
+                                            alt="@lang('menu.rekam_medis')" style="width: 50px; height: 50px;">
+                                        <span>@lang('menu.rekam_medis')</span>
+                                    </a>
+                                </div>
+                            @endif
                             <div class="col">
                                 <a class="dropdown-icon-item" href="{{ route('list.queue') }}">
                                     <img src="{{ URL::asset('/assets/images/brands/queue.svg') }}"
@@ -146,13 +151,15 @@
                                     <span>@lang('menu.queue')</span>
                                 </a>
                             </div>
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="#">
-                                    <img src="{{ URL::asset('/assets/images/brands/monitor.svg') }}"
-                                        alt="@lang('menu.monitor')" style="width: 50px; height: 50px;">
-                                    <span>@lang('menu.monitor')</span>
-                                </a>
-                            </div>
+                            @if (auth()->user()->role == 'admin')
+                                <div class="col">
+                                    <a class="dropdown-icon-item" href="{{ route('administrator.index') }}">
+                                        <img src="{{ URL::asset('/assets/images/brands/administrator.svg') }}"
+                                            alt="@lang('menu.monitor')" style="width: 50px; height: 50px;">
+                                        <span>@lang('menu.administrator')</span>
+                                    </a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -364,10 +371,12 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="topnav-pages">
                                 <a href="{{ route('registration') }}" class="dropdown-item">@lang('menu.registration')</a>
-                                <a href="calendar" class="dropdown-item">@lang('menu.tracker')</a>
-                                <a href="calendar" class="dropdown-item">@lang('menu.rekam_medis')</a>
-                                <a href="calendar" class="dropdown-item">@lang('menu.queue')</a>
-                                <a href="calendar" class="dropdown-item">@lang('menu.monitor')</a>
+                                <a href="#" class="dropdown-item">@lang('menu.tracker')</a>
+                                <a href="{{ route('medical-record.index') }}"
+                                    class="dropdown-item">@lang('menu.rekam_medis')</a>
+                                <a href="{{ route('list.queue') }}" class="dropdown-item">@lang('menu.queue')</a>
+                                <a href="{{ route('administrator.index') }}"
+                                    class="dropdown-item">@lang('menu.administrator')</a>
                             </div>
                         </li>
                         {{-- end aplikasi --}}

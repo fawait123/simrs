@@ -13,5 +13,6 @@ return [
     "rekam_medis"=>"Medical Record",
     "apps"=>"Apps",
     "queue"=>"List Queues Check",
-    "monitor"=>"Monitoring"
+    "monitor"=>"Monitoring",
+    "administrator"=>"Administrator"
 ];

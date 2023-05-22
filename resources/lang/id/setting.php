@@ -13,5 +13,12 @@ return [
     "gender"=>"Jenis Kelamin",
     "button"=>"Simpan",
     "patient"=>"List Pasien yang kamu daftarkan",
-    "patient_desc"=>"Silahkan manage data pasien yang ingin kamu daftarkan"
+    "patient_desc"=>"Silahkan manage data pasien yang ingin kamu daftarkan",
+    "tgl_daftar"=>"Tanggal Daftar",
+    "tgl_periksa"=>"Tanggal Periksa",
+    "doctor"=>"Dokter",
+    "status"=>"Perusahaan Penanggung Jawab",
+    "harga"=>"Harga",
+    "registrasi"=>"Administrasi",
+    "registrasidetail"=>"Daftar riwayat registrasi anda"
 ];

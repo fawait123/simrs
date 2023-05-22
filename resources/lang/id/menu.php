@@ -13,5 +13,6 @@ return [
     "rekam_medis"=>"Rekam Medis",
     "apps"=>"Aplikasi",
     "queue"=>"Daftar Antrian Periksa",
-    "monitor"=>"Monitoring"
+    "monitor"=>"Monitoring",
+    "administrator"=>"Administrasi"
 ];
