@@ -48,6 +48,30 @@
     </div>
 
 
+    <div id="modal-tracking" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="{{ route('tracking.index') }}">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel">Tracking</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 class="font-size-16">Traking Your Medical Record</h5>
+                        <input type="text" name="medicalRecordID" class="form-control">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light waves-effect" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Find</button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
     <!-- Right Sidebar -->
     @include('layouts.right-sidebar')
     <!-- END Right Sidebar -->

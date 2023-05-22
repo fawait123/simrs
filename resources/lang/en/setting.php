@@ -13,5 +13,12 @@ return [
     "gender"=>"Gender",
     "button"=>"Save",
     "patient"=>"List of Patients you registered",
-    "patient_desc"=>"Please manage the patient data you want to register"
+    "patient_desc"=>"Please manage the patient data you want to register",
+    "tgl_daftar"=>"Registration Date",
+    "tgl_periksa"=>"Check Date",
+    "doctor"=>"Doctor",
+    "status"=>"Company in Charge",
+    "harga"=>"Price",
+    "registrasi"=>"Administrator",
+    "registrasidetail"=>"Register your registration history"
 ];

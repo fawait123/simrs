@@ -40,6 +40,17 @@ Route::post('/formsubmit', [App\Http\Controllers\HomeController::class, 'FormSub
 Route::get('medical-record',[\App\Http\Controllers\MedicalRecordController::class,'index'])->name('medical-record.index')->middleware('auth');
 Route::post('medical-record',[\App\Http\Controllers\MedicalRecordController::class,'store'])->name('medical-record.store')->middleware('auth');
 
+// administrator
+Route::get('administrator',[\App\Http\Controllers\AdministratorController::class,'index'])->name('administrator.index')->middleware('auth');
+Route::post('administrator',[\App\Http\Controllers\AdministratorController::class,'submit'])->name('administrator.submit')->middleware('auth');
+Route::get('administrator/json',[\App\Http\Controllers\AdministratorController::class,'json'])->name('administrator.json')->middleware('auth');
+
+
+// tracking
+Route::get('tracking',[App\Http\Controllers\TrackingController::class,'index'])->name('tracking.index')->middleware('auth');
+
+
+
 // route tambahan
 Route::group(['prefix'=>'pages','middleware'=>['auth','role:admin']],function(){
     // master data

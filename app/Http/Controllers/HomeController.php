@@ -72,9 +72,11 @@ class HomeController extends Controller
         $path = explode('/',$path);
         $title = end($path);
 
+        $registrations = \App\Models\Registration::where('price','!=',null)->where('medicalRecordID','!=',null)->orderBy('registrationID','DESC')->get();
 
         return view('pages.setting',[
-            'title'=>$title
+            'title'=>$title,
+            'registrations'=>$registrations
         ]);
     }
 
