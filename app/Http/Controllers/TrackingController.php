@@ -13,8 +13,13 @@ class TrackingController extends Controller
         $title = end($path);
 
 
+        $data = \App\Models\Registration::where('medicalRecordID',$request->medicalRecordID)->first();
+        $medicalrecord = \App\Models\MedicalRecord::where('medicalRecordID',$request->medicalRecordID)->first();
+
         return view('pages.tracking',[
-            'title'=>$title
+            'title'=>$title,
+            'data'=>$data,
+            'medicalrecord'=>$medicalrecord
         ]);
     }
 }

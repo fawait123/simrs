@@ -25,25 +25,32 @@ class MedicalRecordController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            "patientID" => 'required',
+            "goldar" => 'required',
+            "complaint" => 'required',
+            "diagnosis" => 'required',
+            'medicines'=>'required'
+        ]);
         $action = $request->actions;
         $result = $request->results;
 
-
+        $actions = [];
         for ($i=0; $i < count($action); $i++) {
-            $actions = json_encode([
+            array_push($actions,[
                 'action'=>$action[$i],
                 'result'=>$result[$i]
             ]);
         }
         $generateCode = $this->generateCode();
         \App\Models\MedicalRecord::create([
-            'medicinalRecordID'=>$generateCode,
+            'medicalRecordID'=>$generateCode,
             'patientID'=>$request->patientID,
             'doctorID'=>auth()->user()->prefixID,
             'complaint'=>$request->complaint,
             'diagnosis'=>$request->diagnosis,
             'goldar'=>$request->goldar,
-            'action'=>$actions,
+            'action'=>json_encode($actions),
             'medicine'=>$request->medicines,
             'checkDate'=>date('Y-m-d'),
             'checkTime'=>date('H:i:s'),
@@ -66,6 +73,11 @@ class MedicalRecordController extends Controller
     {
         $count = \App\Models\MedicalRecord::count();
         $count += 1;
-        return date('Y').'.'.date('m').'.'.date('d').'.'.$count;
+        return 'RM '.date('Y').'.'.date('m').'.'.date('d').'.'.$count;
+    }
+
+    public function json(Request $request)
+    {
+        return \App\Models\MedicalRecord::with(['doctor','patient'])->where('patientID',$request->patientID)->get();
     }
 }
