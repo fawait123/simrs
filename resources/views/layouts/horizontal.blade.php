@@ -370,13 +370,20 @@
                                 <i class="uil-apps me-2"></i>@lang('menu.apps') <div class="arrow-down"></div>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="topnav-pages">
-                                <a href="{{ route('registration') }}" class="dropdown-item">@lang('menu.registration')</a>
-                                <a href="#" class="dropdown-item">@lang('menu.tracker')</a>
-                                <a href="{{ route('medical-record.index') }}"
-                                    class="dropdown-item">@lang('menu.rekam_medis')</a>
+                                @if (auth()->user()->role == 'user')
+                                    <a href="{{ route('registration') }}"
+                                        class="dropdown-item">@lang('menu.registration')</a>
+                                    <a href="#" class="dropdown-item">@lang('menu.tracker')</a>
+                                @endif
+                                @if (auth()->user()->role == 'doctor')
+                                    <a href="{{ route('medical-record.index') }}"
+                                        class="dropdown-item">@lang('menu.rekam_medis')</a>
+                                @endif
                                 <a href="{{ route('list.queue') }}" class="dropdown-item">@lang('menu.queue')</a>
-                                <a href="{{ route('administrator.index') }}"
-                                    class="dropdown-item">@lang('menu.administrator')</a>
+                                @if (auth()->user()->role == 'admin')
+                                    <a href="{{ route('administrator.index') }}"
+                                        class="dropdown-item">@lang('menu.administrator')</a>
+                                @endif
                             </div>
                         </li>
                         {{-- end aplikasi --}}
