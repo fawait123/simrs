@@ -29,39 +29,59 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="patientID">@lang('medicalrecord.patient')</label>
-                                    <select name="patientID" id="patientID" class="form-control">
+                                    <select name="patientID" id="patientID"
+                                        class="form-control @error('patientID') is-invalid @enderror">
                                         <option value="">select</option>
                                         @foreach ($patients as $item)
                                             <option value="{{ $item->patient->id }}">
                                                 {{ $item->patient->nik . ' | ' . $item->patient->name }}</option>
                                         @endforeach
                                     </select>
+                                    @error('patientID')
+                                        <div class="invalid-feedback">This input required</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="goldar">@lang('medicalrecord.goldar')</label>
-                                    <select name="goldar" id="goldar" class="form-control">
+                                    <select name="goldar" id="goldar"
+                                        class="form-control @error('goldar') is-invalid @enderror">
                                         <option value="">select</option>
                                         <option value="A">A</option>
                                         <option value="AB">AB</option>
                                         <option value="O">O</option>
                                     </select>
+                                    @error('goldar')
+                                        <div class="invalid-feedback">This input required</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="keluhan">@lang('medicalrecord.keluhan')</label>
-                                    <textarea name="complaint" id="keluhan" class="form-control" cols="30" rows="3"></textarea>
+                                    <textarea name="complaint" id="keluhan" class="form-control  @error('complaint') is-invalid @enderror" cols="30"
+                                        rows="3"></textarea>
+                                    @error('complaint')
+                                        <div class="invalid-feedback">This input required</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="tindakan">@lang('medicalrecord.diagnosa')</label>
-                                    <textarea name="diagnosis" id="tindakan" class="form-control" cols="30" rows="3"></textarea>
+                                    <textarea name="diagnosis" id="tindakan" class="form-control @error('diagnosis') is-invalid @enderror" cols="30"
+                                        rows="3"></textarea>
+                                    @error('diagnosis')
+                                        <div class="invalid-feedback">This input required</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="medicineID">@lang('medicalrecord.obat')</label>
-                                    <select name="medicineID" id="medicineID" class="form-control" multiple="multiple">
+                                    <select name="medicineID" id="medicineID"
+                                        class="form-control @error('medicines') is-invalid @enderror" multiple="multiple">
                                         @foreach ($medicines as $item)
                                             <option value="{{ $item->name }}">
                                                 {{ $item->name }}</option>
                                         @endforeach
                                     </select>
+                                    @error('medicines')
+                                        <div class="invalid-feedback">This input required</div>
+                                    @enderror
                                 </div>
                                 <input type="hidden" name="medicines">
                                 <div class="form-group">
@@ -94,11 +114,10 @@
         <div class="col-lg-4">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">@lang('registration.title')</h4>
-                    <p class="card-title-desc">@lang('registration.subtitle')</p>
                     <div class="row">
                         <div class="col-md-12">
-                            medical record
+                            <ul class="activity-feed mb-0 ps-2" id="old-medical-record">
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -147,6 +166,35 @@
 
             $(document).on('click', '.btn-remove', function() {
                 $(this).parent().parent().remove();
+            })
+
+            $("select[name='patientID']").change(function() {
+                $("#old-medical-record").html('<p>Loading...</p>')
+                let value = $(this).val()
+                $.ajax({
+                    url: '{{ route('medical-record.json') }}',
+                    type: 'get',
+                    data: {
+                        patientID: value
+                    },
+                    success: function(res) {
+                        let html = ''
+                        if (res.length > 0) {
+                            res.map((el) => {
+                                let name = el?.doctor?.name || ''
+                                let degree = el?.doctor?.degree || ''
+                                html += `<li class="feed-item">
+                                            <div class="feed-item-list">
+                                                <p class="text-muted mb-1">${el.checkDate}</p>
+                                                <h5 class="font-size-16">${name + ', '+ degree}</h5>
+                                                <p class="text-muted">${el.complaint+' | '+el.diagnosis}</p>
+                                            </div>
+                                        </li>`
+                            })
+                        }
+                        $("#old-medical-record").html(html)
+                    }
+                })
             })
         })
     </script>

@@ -45,6 +45,6 @@ class RegistrationController extends Controller
     {
         $count = \App\Models\Registration::where('registrationDate',date('Y-m-d'))->count();
         $count += 1;
-        return date('Y').'.'.date('m').'.'.date('d').'.'.$count;
+        return 'RGT '.date('Y').'.'.date('m').'.'.date('d').'.'.$count;
     }
 }

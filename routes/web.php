@@ -39,6 +39,7 @@ Route::post('/formsubmit', [App\Http\Controllers\HomeController::class, 'FormSub
 // route rekam medis
 Route::get('medical-record',[\App\Http\Controllers\MedicalRecordController::class,'index'])->name('medical-record.index')->middleware('auth');
 Route::post('medical-record',[\App\Http\Controllers\MedicalRecordController::class,'store'])->name('medical-record.store')->middleware('auth');
+Route::get('medical-record/json',[\App\Http\Controllers\MedicalRecordController::class,'json'])->name('medical-record.json')->middleware('auth');
 
 // administrator
 Route::get('administrator',[\App\Http\Controllers\AdministratorController::class,'index'])->name('administrator.index')->middleware('auth');
