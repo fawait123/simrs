@@ -34,7 +34,38 @@ class HomeController extends Controller
 
     public function root()
     {
-        return view('home');
+        $totalUser = \App\Models\User::count();
+        $userVerified = \App\Models\User::where('is_verified',1)->count();
+        $userChart = ($userVerified / $totalUser) * 100;
+        $userChart = floor($userChart);
+
+        $patient = \App\Models\Patient::count();
+        $patientL = \App\Models\Patient::where('gender','L')->count();
+        $patientChart = ($patientL/$patient) * 100;
+        $patientChart = floor($patientChart);
+
+
+        $doctor = \App\Models\Doctor::count();
+        $doctorL = \App\Models\Doctor::where('gender','L')->count();
+        $doctorChart = ($doctorL/$doctor) * 100;
+        $doctorChart = floor($doctorChart);
+
+        $registration = \App\Models\Registration::count();
+        $registrationL = \App\Models\Registration::where('isFinish',1)->count();
+        $registrationChart = ($registrationL/$registration) * 100;
+        $registrationChart = floor($registrationChart);
+
+
+        return view('home',[
+            'doctor'=>$doctor,
+            'user'=>$totalUser,
+            'patient'=>$patient,
+            'registration'=>$registration,
+            'userChart'=>$userChart,
+            'patientChart'=>$patientChart,
+            'doctorChart'=>$doctorChart,
+            'registrationChart'=>$registrationChart
+        ]);
     }
 
     /*Language Translation*/
