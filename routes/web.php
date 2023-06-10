@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Route;
 
 // Auth::routes();
 
+use Spatie\Health\Http\Controllers\HealthCheckResultsController;
+
+Route::get('health', HealthCheckResultsController::class);
+
 // route auth
 Route::get('login',[App\Http\Controllers\AuthController::class,'login'])->name('login');
 Route::post('login',[App\Http\Controllers\AuthController::class,'loginAction'])->name('login');
